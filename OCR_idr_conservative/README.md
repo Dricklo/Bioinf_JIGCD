@@ -1,0 +1,3 @@
+These files are all the original ATAC-seq peak data procured from /ocean/projects/bio230007p/ikaplow/...
+
+There should be 4 relevant files for human/species tissue combinations.
