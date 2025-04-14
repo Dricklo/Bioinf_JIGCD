@@ -1,0 +1,7 @@
+Cross-tissue OCR percentages:
+Mouse Shared: 57.35% (103937/181202)
+Mouse Liver-Specific: 46.96% (85110/181202)
+Mouse Adrenal-Specific: 8.11% (14711/181202)
+Human Shared: 82.08% (229261/279286)
+Human Liver-Specific: 19.71% (55065/279286)
+Human Adrenal-Specific: 21.82% (60944/279286)

@@ -1,0 +1,3 @@
+[RESULT] Shared peak percentages (cross-species)
+Mouse liver vs Human liver: 29.53% (38051 / 128816)
+Mouse adrenal vs Human adrenal: 14.22% (21410 / 150470)

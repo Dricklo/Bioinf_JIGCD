@@ -1,0 +1,3 @@
+[RESULT] Shared peak counts (cross-species)
+Mouse liver vs Human liver: 38051
+Mouse adrenal vs Human adrenal: 21410

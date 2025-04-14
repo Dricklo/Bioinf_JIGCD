@@ -1,0 +1,8 @@
+Cross-tissue OCR counts:
+human_adrenal_specific_OCR.bed: 60944
+human_liver_specific_OCR.bed: 55065
+human_shared_across_tissues.bed: 229261
+mouse_adrenal_specific_OCR.bed: 14711
+mouse_liver_specific_OCR.bed: 85110
+mouse_shared_across_tissues.bed: 103937
+
