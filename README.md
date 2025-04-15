@@ -21,23 +21,22 @@ This pipeline compares ATAC-seq data for two species and two tissues to assess:
 3. To what extent are the biological processes upregulated in tissue conserved across species?
 
 ## Dependencies
-There are a couple tools that are required to run this pipeline: HALPER, halLiftover, bedtools, GREAT, and the MEME suite. Other than GREAT, which is utilized outside of the command line, dependency set-up can be referenced with <.yml file>. 
+There are a couple tools that are required to run this pipeline: HALPER, halLiftover, bedtools, GREAT, and the MEME suite. Other than GREAT, which is utilized outside of the command line, dependency set-up can be referenced with <.yml file>. If you are running this pipeline on a slurm cluster, please set up these dependencies on the cluster.
 
 *(We gotta make sure that setting up a conda environment with the tools works for running the eventual pipeline script file)*
 
 ## Installation Instructions
-Once the system has been configured as specified in **Dependencies**, you should be good to go to run the pipeline as specified in **Running the Pipeline**. 
+Once the system has been configured as specified in **Dependencies**, you need to clone this GitHub repository onto your machine. The inputs specified below are included in the repository, and the script is hard-coded to pull these inputs. 
 
 ## Inputs
-* *(do we include the ENCODE data in here?)*
 * .bed or .narrowPeak ATAC-seq files for two species and two tissues (resulting in four files total)
+* Quality control data from running ENCODE on the ATAC-seq data for each species and tissue
 * Cactus whole genome alignment .hal file, including the two species of interest
 * Names of the two species of interest in the Cactus alignment, specified as the source species and the target species
-* *TSS peak data*
-* *(am I forgetting anything else?)*
+* .bed file of TSS peak enrichment data for the two species of interest
 
 ## Running the Pipeline
-After you have configured your system as specifed in **Installation Instructions**, use the command below to run the pipeline on a slurm cluster:
+After you have configured your system as specifed in **Installation Instructions**, please cd into <folderName> use the command below to run the pipeline on a slurm cluster:
 
 ``` bash
 sbatch <name of script> <peakfile1> <peakfile2> <peakfile3> <peakfile4> <wholegenomealignment> <speciesName1> <speciesName2> <TSSdata>
@@ -45,11 +44,9 @@ sbatch <name of script> <peakfile1> <peakfile2> <peakfile3> <peakfile4> <wholege
 
 This pipeline can take a while to run, depending on the supercomputer - up to a day or so.
 
-*(do we intend on including instructions for not running it on slurm cluster?)*
-
 ## Outputs
 ### Step 1:
-* *(do we include this in here?)*
+* *filenames*: the ENCODE data for each species' tissue ATAC-seq data.
 ### Step 2:
 * *filenames*: the first species' open chromatin regions mapped to the second species' genome, and the second species' open chromatin regions mapped to the first species' genome. 
 * *filenames*: open chromatin regions in each species whose orthologs in the other species are open and those whose orthologs in the other species are closed.
