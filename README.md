@@ -23,6 +23,7 @@ This pipeline compares ATAC-seq data for two species and two tissues to assess:
 There are a couple tools that are required to run this pipeline: HALPER, halLiftover, bedtools, GREAT, and the MEME suite.
 
 **Bedtools**
+
 Note that the PSC cluster comes with bedtools already installed, but must be loaded by entering this command into the bash command line:
 ```
 module load bedtools/2.30.0
@@ -32,6 +33,7 @@ If using the PSC cluster to run all the scripts below, make sure this module is 
 If the cluster does not have bedtools installed or you are running everything locally, you can also install bedtools with two methods: 
 
 **Method 1: Environment installation**  
+
 To install bedtools to a previous environment. You first need to activate your environment
 ```
 conda activate environment_name 
@@ -47,6 +49,7 @@ conda install -c bioconda bedtools
 ```
 
 **Method 2: Local installation**  
+
 If installing to the local machine for operation outside of the environment or for a SLURM cluster, follow the instructions at the given website:
 https://bedtools.readthedocs.io/en/latest/content/installation.html
 For clarification sake, here are some simple steps to install it running in bash: 
@@ -148,19 +151,36 @@ source ~/.bash_profile
 
 ## Outputs
 ### Step 1:
-* *data/Human_qc/qc_TISSUE_human.html, data/Mouse_qc/qc_TISSUE_mouse.html*: the ENCODE data for each species' tissue ATAC-seq data.
+* the ENCODE data for each species' tissue ATAC-seq data:
+  * data/Human_qc/qc_TISSUE_human.html
+  * data/Mouse_qc/qc_TISSUE_mouse.html
 ### Step 2:
-* *results/step2_HALPER_results/idr.conservative_peak.TISSUE_SPECIES1ToSPECIES2.HALPER.narrowPeak*: the first species' open chromatin regions mapped to the second species' genome, and the second species' open chromatin regions mapped to the first species' genome. 
-* *results/step2a_bedtools_results/SPECIES1_TISSUE_peaks_with_open_SPECIES2_orthologs.bed, results/step2a_bedtools_results/SPECIES1_TISSUE_peaks_with_closed_SPECIES2_orthologs.bed*: open chromatin regions in each species whose orthologs in the other species are open and those whose orthologs in the other species are closed.
+* the first species' open chromatin regions mapped to the second species' genome, and the second species' open chromatin regions mapped to the first species' genome:
+  * results/step2_HALPER_results/idr.conservative_peak.TISSUE_SPECIES1ToSPECIES2.HALPER.narrowPeak
+* open chromatin regions in each species whose orthologs in the other species are open and those whose orthologs in the other species are closed:
+  * results/step2a_bedtools_results/SPECIES1_TISSUE_peaks_with_open_SPECIES2_orthologs.bed
+  * results/step2a_bedtools_results/SPECIES1_TISSUE_peaks_with_closed_SPECIES2_orthologs.bed
 ### Step 3:
-* *result/step3_comparison/cross_tissue/SPECIES_shared_across_tissues.bed, result/step3_comparison/cross_tissue/SPECIES_TISSUE_<specific>_OCR.bed, result/step3_comparison/cross_species/SPECIES1_TISSUE_shared_with_SPECIES2_TISSUE.bed*: open chromatin regions in each species that are open in both tissues and those that are open in only one tissue.
-* *result/step3_comparison/cross_tissue/cross_tissue_percentages.txt, result/step3_comparison/cross_species/cross_species_percentages.txt*: quantification of which species/tissue combination have more open chromatin regions.
+* open chromatin regions in each species that are open in both tissues and those that are open in only one tissue:
+  * result/step3_comparison/cross_tissue/SPECIES_shared_across_tissues.bed
+  * result/step3_comparison/cross_tissue/SPECIES_TISSUE_<specific>_OCR.bed
+  * result/step3_comparison/cross_species/SPECIES1_TISSUE_shared_with_SPECIES2_TISSUE.bed
+* quantification of which species/tissue combination have more open chromatin regions:
+  * result/step3_comparison/cross_tissue/cross_tissue_percentages.txt
+  * result/step3_comparison/cross_species/cross_species_percentages.txt
 ### Step 4:
-* *filenames*: candidate biological processes regulated by open chromatin regions in each species/tissue combination, as well as open chromatin regions shared across tissues, specific to each tissue, shared across species, and specific to each species.
+* candidate biological processes regulated by open chromatin regions in each species/tissue combination, as well as open chromatin regions shared across tissues, specific to each tissue, shared across species, and specific to each species:
+  * results/step4_GREAT_results/4a/SPECIES_TISSUE_biologicalProcesses.pdf
+  * results/step4_GREAT_results/4b/SPECIES_shared_across_tissues_biologicalProcesses.pdf
+  * results/step4_GREAT_results/4c/SPECIES_TISSUE/SPECIES_TISSUE_specific_biologicalProcesses.pdf
+  * results/step4_GREAT_results/4d/SPECIES_to_SPECIES_TISSUE/SPECIEStoSPECIES_TISSUE_biologicalProcesses.pdf
+  * results/step4_GREAT_results/4e/SPECIES_TISSUE_specific_cross_species_biologicalProcesses.pdf
 ### Step 5:
-* *filenames*: quantification of how the percentage of promotors and enhancers in the open chromatin data in each species/tissue combination compares across tissues and across species.
+* quantification of how the percentage of promotors and enhancers in the open chromatin data in each species/tissue combination compares across tissues and across species:
+  * *in progress*
 ### Step 6:
-* *filenames*: sequence patterns that occur more than expected by chance, in the full set of peaks for each species/tissue combination, enhancers and promoters for each species/tissue combination, and enhancers that are shared across tissues, specific to each tissue, shared across species, and specific to each species.
+* sequence patterns that occur more than expected by chance, in the full set of peaks for each species/tissue combination, enhancers and promoters for each species/tissue combination, and enhancers that are shared across tissues, specific to each tissue, shared across species, and specific to each species:
+  * *in progress*
 
 ## Citations
 
@@ -190,3 +210,5 @@ source ~/.bash_profile
 * Jinqi Hou
 * Grace Du
 * Isabelle D'Amico
+
+
