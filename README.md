@@ -23,49 +23,60 @@ This pipeline compares ATAC-seq data for two species and two tissues to assess:
 There are a couple tools that are required to run this pipeline: HALPER, halLiftover, bedtools, GREAT, and the MEME suite.
 
 **Bedtools**
-Note that the PSC cluster comes with bedtools already installed, but must be loaded by entering this command into the command line:
-```bash
+Note that the PSC cluster comes with bedtools already installed, but must be loaded by entering this command into the bash command line:
+```
 module load bedtools/2.30.0
 ```
 If using the PSC cluster to run all the scripts below, make sure this module is always loaded beforehand!
  
 If the cluster does not have bedtools installed or you are running everything locally, you can also install bedtools with two methods:  
 **Method 1: Environment installation**  
-To install bedtools to the environment. You first need to activate your environment
-```bash
-conda activate environment_name```  
-
+To install bedtools to a previous environment. You first need to activate your environment
+```
+conda activate environment_name 
+```
+You can also create a new environment, with a specific name instead of <my-env>
+```
+conda create --name <my-env> 
+``` 
 Then, install with:
-```bash
-conda install -c bioconda bedtools```
+```
+conda install -c bioconda bedtools 
+```
 
 **Method 2: Local installation**  
 If installing to the local machine for operation outside of the environment or for a SLURM cluster, follow the instructions at the given website:
 https://bedtools.readthedocs.io/en/latest/content/installation.html
 For clarification sake, here are some simple steps to install it running in bash: 
 Step 1: make a directory for bedtools from the home directory and navigate to it.
-```bash
+```
 mkdir -p ~/tools
-cd ~/tools```
+cd ~/tools
+```
 
 Step 2: clone the github repo for it, and then navigate into it
-```bash
+```
 git clone https://github.com/arq5x/bedtools2.git
-cd bedtools2``` 
+cd bedtools2
+``` 
 
 Step 3: Compile bedtools 
-```bash
-make```
-There should be files now located in ~/tools/bedtools2/bin/bedtools
+```
+make
+```
+There should be files now located in ~/tools/bedtools2/bin/bedtools 
 
 Step 4: Verify bedtools is now installed:
-```bash
-./bin/bedtools --version```
+```
+./bin/bedtools --version
+```
+There should be an output of bedtools and its version.
 
 Step 5: Add it permanently to bash profile, and then reload. 
-```bash
+```
 export PATH=$HOME/tools/bedtools2/bin:$PATH
-source ~/.bashrc```
+source ~/.bashrc
+```
 
 
 **HALPER/HalLiftOver installation**
@@ -85,10 +96,21 @@ Note that PSC does not come with HALPER/HalLiftover installed, and thus must be 
 
 **Conda Environment**
 
-Although the Conda Environment is properly setup in the HALPER/halLiftover installation methods, I have also included it in the environment folder as a hal.yml file. It can be found in the github repo under the folder _environment_ as "hal.yml".
-
+Although the Conda Environment is properly setup in the HALPER/halLiftover installation methods, I have also included it in the environment folder as a hal.yml file. It can be found in the github repo under the folder _environment_ as "hal.yml". 
+To create a new environment with the hal.yml file, you would enter the following into bash:
+```
+conda env create -f hal.yml
+```
+To update a previous environment that is already activated with conda activate, you would use:
+```
+conda env update -f hal.yml
+``` 
 **MEME suite**
 
+MEME suite is installed following the steps from this website: 
+https://meme-suite.org/meme/doc/install.html?man_type=web  
+
+We will also be using the Bed2FASTA utility to convert .bed files to fasta files for MEME suite.
 //include eventual section about using bed2Fasta to convert .bed to fasta files. 
 //include installation instructions for MEME.
 
