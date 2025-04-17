@@ -1,4 +1,4 @@
-# 03-713: Bioinformatics Data Integration Practicum (Spring 2025) Group Project
+## 03-713: Bioinformatics Data Integration Practicum (Spring 2025) Group Project
 
 ## Notes from Lecture for README
 
