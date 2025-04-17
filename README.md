@@ -28,6 +28,45 @@ Note that the PSC cluster comes with bedtools already installed, but must be loa
 module load bedtools/2.30.0
 ```
 If using the PSC cluster to run all the scripts below, make sure this module is always loaded beforehand!
+ 
+If the cluster does not have bedtools installed or you are running everything locally, you can also install bedtools with two methods:  
+**Method 1: Environment installation**  
+To install bedtools to the environment. You first need to activate your environment
+```bash
+conda activate environment_name```  
+
+Then, install with:
+```bash
+conda install -c bioconda bedtools```
+
+**Method 2: Local installation**  
+If installing to the local machine for operation outside of the environment or for a SLURM cluster, follow the instructions at the given website:
+https://bedtools.readthedocs.io/en/latest/content/installation.html
+For clarification sake, here are some simple steps to install it running in bash: 
+Step 1: make a directory for bedtools from the home directory and navigate to it.
+```bash
+mkdir -p ~/tools
+cd ~/tools```
+
+Step 2: clone the github repo for it, and then navigate into it
+```bash
+git clone https://github.com/arq5x/bedtools2.git
+cd bedtools2``` 
+
+Step 3: Compile bedtools 
+```bash
+make```
+There should be files now located in ~/tools/bedtools2/bin/bedtools
+
+Step 4: Verify bedtools is now installed:
+```bash
+./bin/bedtools --version```
+
+Step 5: Add it permanently to bash profile, and then reload. 
+```bash
+export PATH=$HOME/tools/bedtools2/bin:$PATH
+source ~/.bashrc```
+
 
 **HALPER/HalLiftOver installation**
 
