@@ -132,6 +132,12 @@ Once the system has been configured as specified in **Dependencies**, you need t
 * .bed file of TSS peak enrichment data for the two species of interest
 
 ## Running the Pipeline
+Below is a brief overview of the pipeline:
+
+<p align="center">
+  <img src="images/pipeline_preview.png" alt="Pipeline Preview" width="500"/>
+</p>
+
 After you have configured your system as specifed in **Installation Instructions**, please cd into the scripts folder and use the command below to run the pipeline on a slurm cluster:
 
 ``` bash
