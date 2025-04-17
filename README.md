@@ -30,6 +30,7 @@ module load bedtools/2.30.0
 If using the PSC cluster to run all the scripts below, make sure this module is always loaded beforehand!
 
 **HALPER/HalLiftOver installation**
+
 To be able to produce the outputs for step 2. You need to make sure that HalLiftover/HALPER is installed. The main instructions are detailed in the README.md from:
 [[https://github.com/pfenninglab/halLiftover-postprocessing](https://github.com/pfenninglab/halLiftover-postprocessing/blob/master/hal_install_instructions.md)](https://github.com/pfenninglab/halLiftover-postprocessing/blob/master/hal_install_instructions.md)
 
@@ -43,9 +44,11 @@ Note that PSC does not come with HALPER/HalLiftover installed, and thus must be 
 * HALPER has been tested on Linux (CentOS 6, CentOS 7, and Ubuntu 18.04.4), Windows (Windows 10), and Mac
 
 **Conda Environment**
+
 Although the Conda Environment is properly setup in the HALPER/halLiftover installation methods, I have also included it in the environment folder as a hal.yml file. It can be found in the github repo under the folder _environment_ as "hal.yml".
 
 **MEME suite**
+
 //include eventual section about using bed2Fasta to convert .bed to fasta files. 
 //include installation instructions for MEME.
 
