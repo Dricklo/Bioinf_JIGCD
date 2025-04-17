@@ -35,7 +35,7 @@ To install bedtools to a previous environment. You first need to activate your e
 ```
 conda activate environment_name 
 ```
-You can also create a new environment, with a specific name instead of <my-env>
+You can also create a new environment, with a specific name instead of `<my-env>`
 ```
 conda create --name <my-env> 
 ``` 
@@ -110,8 +110,8 @@ conda env update -f hal.yml
 MEME suite is installed following the steps from this website: 
 https://meme-suite.org/meme/doc/install.html?man_type=web  
 
-We will also be using the Bed2FASTA utility to convert .bed files to fasta files for MEME suite.
-//include eventual section about using bed2Fasta to convert .bed to fasta files. 
+We will also be using the Bed2FASTA utility to convert .bed files to fasta files for MEME suite.  
+//include eventual section about using bed2Fasta to convert .bed to fasta files.  
 //include installation instructions for MEME.
 
 
