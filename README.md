@@ -32,7 +32,8 @@ If using the PSC cluster to run all the scripts below, make sure this module is 
 **HALPER/HalLiftOver installation**
 
 To be able to produce the outputs for step 2. You need to make sure that HalLiftover/HALPER is installed. The main instructions are detailed in the README.md from:
-[[https://github.com/pfenninglab/halLiftover-postprocessing](https://github.com/pfenninglab/halLiftover-postprocessing/blob/master/hal_install_instructions.md)](https://github.com/pfenninglab/halLiftover-postprocessing/blob/master/hal_install_instructions.md)
+
+https://github.com/pfenninglab/halLiftover-postprocessing](https://github.com/pfenninglab/halLiftover-postprocessing/blob/master/hal_install_instructions.md
 
 Note that PSC does not come with HALPER/HalLiftover installed, and thus must be followed manually. There are several sub-dependencies in this installation process itself (from the installation README):
 * Python version 3.6 or 3.7
