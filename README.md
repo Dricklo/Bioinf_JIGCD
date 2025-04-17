@@ -1,5 +1,5 @@
 ## 03-713: Bioinformatics Data Integration Practicum (Spring 2025) Group Project
-
+<!--
 ## Notes from Lecture for README
 
 - Include steps for running our pipeline
@@ -12,7 +12,7 @@
   
   ```bash
   conda env export > environment_drop.yml
-
+-->
 ## Introduction
 This pipeline compares ATAC-seq data for two species and two tissues to assess:
 1. Is transcriptional regulatory element activity more conserved across tissues or species? How does this transcriptional regulatory element conservation and code differ between tissues and species?
@@ -29,7 +29,8 @@ module load bedtools/2.30.0
 ```
 If using the PSC cluster to run all the scripts below, make sure this module is always loaded beforehand!
  
-If the cluster does not have bedtools installed or you are running everything locally, you can also install bedtools with two methods:  
+If the cluster does not have bedtools installed or you are running everything locally, you can also install bedtools with two methods: 
+
 **Method 1: Environment installation**  
 To install bedtools to a previous environment. You first need to activate your environment
 ```
@@ -37,7 +38,8 @@ conda activate environment_name
 ```
 You can also create a new environment, with a specific name instead of `<my-env>`
 ```
-conda create --name <my-env> 
+conda create --name <my-env>
+conda activate <my-env>
 ``` 
 Then, install with:
 ```
@@ -111,9 +113,10 @@ MEME suite is installed following the steps from this website:
 https://meme-suite.org/meme/doc/install.html?man_type=web  
 
 We will also be using the Bed2FASTA utility to convert .bed files to fasta files for MEME suite.  
+<!--
 //include eventual section about using bed2Fasta to convert .bed to fasta files.  
 //include installation instructions for MEME.
-
+-->
 
 ## Installation Instructions
 Once the system has been configured as specified in **Dependencies**, you need to clone this GitHub repository onto your machine. The inputs specified below are included in the repository, and the script is hard-coded to pull these inputs. 
