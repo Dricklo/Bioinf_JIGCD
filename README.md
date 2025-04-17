@@ -22,7 +22,33 @@ This pipeline compares ATAC-seq data for two species and two tissues to assess:
 ## Dependencies
 There are a couple tools that are required to run this pipeline: HALPER, halLiftover, bedtools, GREAT, and the MEME suite.
 
-*Darrick update dependencies - aka download each tool using their instructions*
+**Bedtools**
+Note that the PSC cluster comes with bedtools already installed, but must be loaded by entering this command into the command line:
+```bash
+module load bedtools/2.30.0
+```
+If using the PSC cluster to run all the scripts below, make sure this module is always loaded beforehand!
+
+**HALPER/HalLiftOver installation**
+To be able to produce the outputs for step 2. You need to make sure that HalLiftover/HALPER is installed. The main instructions are detailed in the README.md from:
+[[https://github.com/pfenninglab/halLiftover-postprocessing](https://github.com/pfenninglab/halLiftover-postprocessing/blob/master/hal_install_instructions.md)](https://github.com/pfenninglab/halLiftover-postprocessing/blob/master/hal_install_instructions.md)
+
+Note that PSC does not come with HALPER/HalLiftover installed, and thus must be followed manually. There are several sub-dependencies in this installation process itself (from the installation README):
+* Python version 3.6 or 3.7
+* Python libraries matplotlib and numpy
+  * numpy (http://www.numpy.org/)
+    * HALPER has been tested using numpy versions 1.14.3, 1.16.0, 1.16.4, 1.16.6, and 1.18.2
+  * matplotlib (https://matplotlib.org/downloads.html)
+    * HALPER has been tested using matplotlib versions 1.5.1, 2.2.3, 3.2.1
+* HALPER has been tested on Linux (CentOS 6, CentOS 7, and Ubuntu 18.04.4), Windows (Windows 10), and Mac
+
+**Conda Environment**
+Although the Conda Environment is properly setup in the HALPER/halLiftover installation methods, I have also included it in the environment folder as a hal.yml file. It can be found in the github repo under the folder _environment_ as "hal.yml".
+
+**MEME suite**
+//include eventual section about using bed2Fasta to convert .bed to fasta files. 
+//include installation instructions for MEME.
+
 
 ## Installation Instructions
 Once the system has been configured as specified in **Dependencies**, you need to clone this GitHub repository onto your machine. The inputs specified below are included in the repository, and the script is hard-coded to pull these inputs. 
