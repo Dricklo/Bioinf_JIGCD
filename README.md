@@ -20,9 +20,9 @@ This pipeline compares ATAC-seq data for two species and two tissues to assess:
 3. To what extent are the biological processes upregulated in tissue conserved across species?
 
 ## Dependencies
-There are a couple tools that are required to run this pipeline: HALPER, halLiftover, bedtools, GREAT, and the MEME suite. Other than GREAT, which is utilized outside of the command line, dependency set-up can be referenced with <.yml file>. If you are running this pipeline on a slurm cluster, please set up these dependencies on the cluster.
+There are a couple tools that are required to run this pipeline: HALPER, halLiftover, bedtools, GREAT, and the MEME suite.
 
-*(We gotta make sure that setting up a conda environment with the tools works for running the eventual pipeline script file)*
+*Darrick update dependencies - aka download each tool using their instructions*
 
 ## Installation Instructions
 Once the system has been configured as specified in **Dependencies**, you need to clone this GitHub repository onto your machine. The inputs specified below are included in the repository, and the script is hard-coded to pull these inputs. 
@@ -35,23 +35,32 @@ Once the system has been configured as specified in **Dependencies**, you need t
 * .bed file of TSS peak enrichment data for the two species of interest
 
 ## Running the Pipeline
-After you have configured your system as specifed in **Installation Instructions**, please cd into <folderName> use the command below to run the pipeline on a slurm cluster:
+After you have configured your system as specifed in **Installation Instructions**, please cd into the scripts folder and use the command below to run the pipeline on a slurm cluster:
 
 ``` bash
-sbatch <name of script> <peakfile1> <peakfile2> <peakfile3> <peakfile4> <wholegenomealignment> <speciesName1> <speciesName2> <TSSdata>
+sbatch wrapperScript.sh
 ```
 
 This pipeline can take a while to run, depending on the supercomputer - up to a day or so.
 
+## Common Issues
+If you run into issues running the above script due to your system not locating the halLiftover script, make sure you run the below code from steps 12 and 13 of the [hal/HALPER instruction manual]([url](https://github.com/pfenninglab/halLiftover-postprocessing/blob/master/hal_install_instructions.md)). 
+
+``` bash
+export PATH=[repos dir]/hal/bin:${PATH}
+export PYTHONPATH=[repos dir]/halLiftover-postprocessing:${PYTHONPATH}
+source ~/.bash_profile
+```
+
 ## Outputs
 ### Step 1:
-* *filenames*: the ENCODE data for each species' tissue ATAC-seq data.
+* *data/Human_qc/qc_TISSUE_human.html, data/Mouse_qc/qc_TISSUE_mouse.html*: the ENCODE data for each species' tissue ATAC-seq data.
 ### Step 2:
-* *filenames*: the first species' open chromatin regions mapped to the second species' genome, and the second species' open chromatin regions mapped to the first species' genome. 
-* *filenames*: open chromatin regions in each species whose orthologs in the other species are open and those whose orthologs in the other species are closed.
+* *results/step2_HALPER_results/idr.conservative_peak.TISSUE_SPECIES1ToSPECIES2.HALPER.narrowPeak*: the first species' open chromatin regions mapped to the second species' genome, and the second species' open chromatin regions mapped to the first species' genome. 
+* *results/step2a_bedtools_results/SPECIES1_TISSUE_peaks_with_open_SPECIES2_orthologs.bed, results/step2a_bedtools_results/SPECIES1_TISSUE_peaks_with_closed_SPECIES2_orthologs.bed*: open chromatin regions in each species whose orthologs in the other species are open and those whose orthologs in the other species are closed.
 ### Step 3:
-* *filenames*: open chromatin regions in each species that are open in both tissues and those that are open in only one tissue.
-* *filenames*: quantification of which species/tissue combination have more open chromatin regions.
+* *result/step3_comparison/cross_tissue/SPECIES_shared_across_tissues.bed, result/step3_comparison/cross_tissue/SPECIES_TISSUE_<specific>_OCR.bed, result/step3_comparison/cross_species/SPECIES1_TISSUE_shared_with_SPECIES2_TISSUE.bed*: open chromatin regions in each species that are open in both tissues and those that are open in only one tissue.
+* *result/step3_comparison/cross_tissue/cross_tissue_percentages.txt, result/step3_comparison/cross_species/cross_species_percentages.txt*: quantification of which species/tissue combination have more open chromatin regions.
 ### Step 4:
 * *filenames*: candidate biological processes regulated by open chromatin regions in each species/tissue combination, as well as open chromatin regions shared across tissues, specific to each tissue, shared across species, and specific to each species.
 ### Step 5:
