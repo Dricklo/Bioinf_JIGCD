@@ -61,11 +61,27 @@ This pipeline can take a while to run, depending on the supercomputer - up to a 
 * *filenames*: sequence patterns that occur more than expected by chance, in the full set of peaks for each species/tissue combination, enhancers and promoters for each species/tissue combination, and enhancers that are shared across tissues, specific to each tissue, shared across species, and specific to each species.
 
 ## Citations
-* ENCODE
-* HALPER/halLiftover
-* GREAT
-* bedtools
-* MEME suite
+
+- **ENCODE**  
+  ENCODE Project Consortium. An integrated encyclopedia of DNA elements in the human genome. *Nature*. 2012 Sep 6;489(7414):57-74. [PMID: 22955616]
+
+- **HALPER / halLiftover**  
+  Zhang Y, Li T, Preissl S, Amaral ML, Grinstein JD, Farah EN, et al. HALPER facilitates the identification of regulatory element orthologs across species. *Nucleic Acids Res*. 2020 Jul 9;48(12):e72. [https://pubmed.ncbi.nlm.nih.gov/32407523/]  
+  GitHub: https://github.com/pfenninglab/halLiftover-postprocessing
+
+- **GREAT**  
+  McLean CY, Bristor D, Hiller M, Clarke SL, Schaar BT, Lowe CB, et al. GREAT improves functional interpretation of cis-regulatory regions. *Nat Biotechnol*. 2010 May;28(5):495-501. [https://pubmed.ncbi.nlm.nih.gov/20436461/]  
+  Website: https://great.stanford.edu/great/public/html/
+
+- **bedtools**  
+  Quinlan AR, Hall IM. BEDTools: a flexible suite of utilities for comparing genomic features. *Bioinformatics*. 2010 Mar 15;26(6):841-2. [https://pubmed.ncbi.nlm.nih.gov/20110278/]  
+  Docs: https://bedtools.readthedocs.io/en/latest/
+
+- **MEME Suite**  
+  Bailey TL, Boden M, Buske FA, Frith M, Grant CE, Clementi L, et al. MEME Suite: tools for motif discovery and searching. *Nucleic Acids Res*. 2009 Jul;37(Web Server issue):W202-8. [https://pubmed.ncbi.nlm.nih.gov/21486936/]  
+  Website: https://meme-suite.org/meme/  
+  Docs: https://meme-suite.org/meme/doc/meme-chip.html
+
 
 ## Contributors
 * Darrick Lo
