@@ -247,4 +247,24 @@ echo "[Done] Cross-tissue OCR percentages written to $output_file"
 # run outside of the pipeline with results from the GREAT webserver
 
 # Step 6
-# skipping for the rough draft submission
+# obtain the bed file for enhancer & promotor
+bedtools closest \
+-a human_adrenal_specific_OCR.bed \
+-b gencode.Human.v27.annotation._TSSsWithStrand_sorted.bed \
+-d | awk '$10>5000' > enhancers_human_adrenal.bed
+
+bedtools closest \
+-a human_liver_specific_OCR.bed \
+-b gencode.Human.v27.annotation._TSSsWithStrand_sorted.bed \
+-d | awk '$10>5000' > enhancers_human_liver.bed
+
+bedtools closest \
+-a mouse_adrenal_specific_OCR.bed \
+-b gencode.Mouse.v27.annotation._TSSsWithStrand_sorted.bed \
+-d | awk '$10>5000' > enhancers_mouse_adrenal.bed
+
+
+bedtools closest \
+-a mouse_liver_specific_OCR.bed \
+-b gencode.Mouse.v27.annotation._TSSsWithStrand_sorted.bed \
+-d | awk '$10>5000' > enhancers_mouse_liver.bed
