@@ -13,6 +13,10 @@ if [ "$#" -ne 3 ]; then
     exit 1
 fi
 
+# Make sure the output directory exists
+OUT_DIR=$(dirname "$OUT_PREFIX")
+mkdir -p "$OUT_DIR"
+
 # Step 1: Filter out regions smaller than 6bp (if needed)
 awk '($3-$2) >= 6' "$BEDFILE" > "${OUT_PREFIX}_filtered.bed"
 
@@ -32,8 +36,10 @@ bedtools getfasta -fi "$GENOMEFA" -bed "${OUT_PREFIX}_256bp.bed" -fo "${OUT_PREF
 module load MEME-suite/5.4.1  # (if not already loaded)
 
 # Create a MEME-CHIP output directory
-
 MEMECHIP_OUTDIR="${OUT_PREFIX}_memechip"
 
 # Run meme-chip
 meme-chip "${OUT_PREFIX}_256bp.fasta" -oc "$MEMECHIP_OUTDIR"
+
+# Print completion message
+echo "MEME-ChIP analysis for $BEDFILE complete. Results in $MEMECHIP_OUTDIR"
