@@ -421,6 +421,29 @@ echo "Step 6f preparation complete: Files for enhancers shared across species cr
 # Step 5 (continued)
 # Now, preparation for step 6g: Enhancers that are shared across species for each tissue
 
+echo "Processing Step 6g: Species-specific enhancers for each tissue..."
+
+# Process mouse adrenal-specific peaks
+echo "Processing mouse-specific adrenal enhancers..."
+cat ../results/step3_comparison/cross_species_different/mouse_adrenal_different_than_human_small.bed | \
+  cut -f1-3 | sort -k1,1 -k2,2n -u > ../results/step5/mouse_specific_adrenal_sorted.bed
+
+# Find mouse-specific adrenal enhancers
+bedtools closest -a ../results/step5/mouse_specific_adrenal_sorted.bed \
+  -b ../data/TSS_sorted/gencode.Mouse.vM15.annotation_TSSWithStrand_sorted.bed -d | \
+  awk '$10>5000' > ../results/step5/enhancers_promoters/mouse_specific_adrenal_enhancers.bed
+
+# Process mouse liver-specific peaks
+echo "Processing mouse-specific liver enhancers..."
+cat ../results/step3_comparison/cross_species_different/mouse_liver_different_than_human_small.bed | \
+  cut -f1-3 | sort -k1,1 -k2,2n -u > ../results/step5/mouse_specific_liver_sorted.bed
+
+# Find mouse-specific liver enhancers
+bedtools closest -a ../results/step5/mouse_specific_liver_sorted.bed \
+  -b ../data/TSS_sorted/gencode.Mouse.vM15.annotation_TSSWithStrand_sorted.bed -d | \
+  awk '$10>5000' > ../results/step5/enhancers_promoters/mouse_specific_liver_enhancers.bed
+
+echo "Step 6g preparation complete: Species-specific enhancer files created"
 
 
 # Finally, with preparation for step 6 complete, we can used the resulting bed files and move to step 6:
@@ -548,5 +571,23 @@ bash ../scripts/step6/prep_fasta_and_memechip.sh \
     "../results/step5/enhancers_promoters/liver_shared_enhancers.bed" \
     "${MOUSE_GENOME}" \
     "../results/step6_motifs/6f/liver_shared_enhancers"
+	
+# Step 6g: Enhancers that are specific to each species for each tissue
+echo "Processing Step 6g: Species-specific enhancers for each tissue"
+
+# Create output directory if it doesn't exist
+mkdir -p ../results/step6_motifs/6g
+
+# Mouse-specific adrenal enhancers
+bash ../scripts/step6/prep_fasta_and_memechip.sh \
+    "../results/step5/enhancers_promoters/mouse_specific_adrenal_enhancers.bed" \
+    "${MOUSE_GENOME}" \
+    "../results/step6_motifs/6g/mouse_specific_adrenal_enhancers"
+
+# Mouse-specific liver enhancers
+bash ../scripts/step6/prep_fasta_and_memechip.sh \
+    "../results/step5/enhancers_promoters/mouse_specific_liver_enhancers.bed" \
+    "${MOUSE_GENOME}" \
+    "../results/step6_motifs/6g/mouse_specific_liver_enhancers"
 
 echo "Step 6 motif analysis complete!"
