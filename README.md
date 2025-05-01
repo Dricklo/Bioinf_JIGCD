@@ -90,11 +90,15 @@ Due to the PSC outage, our original paths might no longer work for relevant .fa 
 The size of these files also made uploading to github difficult.<br>
 Thus, the workaround is to download the relevant .fa files from these website links:<br>
 
-HUMAN GENOME.FA = https://hgdownload.soe.ucsc.edu/goldenpath/hg38/bigZips/<br>
-MOUSE GENOME.FA = https://hgdownload.soe.ucsc.edu/goldenPath/mm10/bigZips/<br>
+* HUMAN GENOME.FA = https://hgdownload.soe.ucsc.edu/goldenpath/hg38/bigZips/<br>
+* MOUSE GENOME.FA = https://hgdownload.soe.ucsc.edu/goldenPath/mm10/bigZips/<br>
 
 Make sure to unpack and put these files in the cloned repo under: /data/fa_reference  
-These files are needed for bed to fasta conversion.
+These files are needed for bed to fasta conversion.  
+If planning to use other .fa files from human, mouse, or otherwise, it should be found from the UCSC website:  
+* https://hgdownload.soe.ucsc.edu/downloads.html
+
+However, note the current analysis is for the hg38 human assembly and mm10 mouse assembly.
 
 **HALPER/HalLiftOver installation**
 
