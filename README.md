@@ -1,18 +1,5 @@
 ## 03-713: Bioinformatics Data Integration Practicum (Spring 2025) Group Project
-<!--
-## Notes from Lecture for README
 
-- Include steps for running our pipeline
-
-- Have an introduction section and a dependencies section
-
-- Include an install section (?)
-
-- If using conda environments, you can upload the `config.yml`, which details all the packages in the environment:
-  
-  ```bash
-  conda env export > environment_drop.yml
--->
 ## Introduction
 This pipeline compares ATAC-seq data for two species and two tissues to assess:
 1. Is transcriptional regulatory element activity more conserved across tissues or species? How does this transcriptional regulatory element conservation and code differ between tissues and species?
@@ -225,6 +212,12 @@ source ~/.bash_profile
   Bailey TL, Boden M, Buske FA, Frith M, Grant CE, Clementi L, et al. MEME Suite: tools for motif discovery and searching. *Nucleic Acids Res*. 2009 Jul;37(Web Server issue):W202-8. [https://pubmed.ncbi.nlm.nih.gov/21486936/]  
   Website: https://meme-suite.org/meme/  
   Docs: https://meme-suite.org/meme/doc/meme-chip.html
+
+- Gene AI Usage
+  OpenAI. (2023). ChatGPT (April 1 version) [Large language model]. https://chat.openai.com/chat  
+  Anthropic. Claude (version 3.7 Sonnet) [Large language model]. https://claude.ai. 2025.  
+
+  AI was used to edit code for the wrapper script and file pathing and help with proper installation steps for bedtools. 
 
 
 ## Contributors
