@@ -51,7 +51,8 @@ conda install -c bioconda bedtools
 **Method 2: Local installation**  
 
 If installing to the local machine for operation outside of the environment or for a SLURM cluster, follow the instructions at the given website:
-https://bedtools.readthedocs.io/en/latest/content/installation.html
+https://bedtools.readthedocs.io/en/latest/content/installation.html<br>
+
 For clarification sake, here are some simple steps to install it running in bash: 
 Step 1: make a directory for bedtools from the home directory and navigate to it.
 ```
@@ -83,6 +84,17 @@ export PATH=$HOME/tools/bedtools2/bin:$PATH
 source ~/.bashrc
 ```
 
+**Files**  
+
+Due to the PSC outage, our original paths might no longer work for relevant .fa files.  
+The size of these files also made uploading to github difficult.<br>
+Thus, the workaround is to download the relevant .fa files from these website links:<br>
+
+HUMAN GENOME.FA = https://hgdownload.soe.ucsc.edu/goldenpath/hg38/bigZips/<br>
+MOUSE GENOME.FA = https://hgdownload.soe.ucsc.edu/goldenPath/mm10/bigZips/<br>
+
+Make sure to unpack and put these files in the cloned repo under: /data/fa_reference  
+These files are needed for bed to fasta conversion.
 
 **HALPER/HalLiftOver installation**
 
@@ -115,11 +127,11 @@ conda env update -f hal.yml
 MEME suite is installed following the steps from this website: 
 https://meme-suite.org/meme/doc/install.html?man_type=web  
 
-We will also be using the Bed2FASTA utility to convert .bed files to fasta files for MEME suite.  
-<!--
-//include eventual section about using bed2Fasta to convert .bed to fasta files.  
-//include installation instructions for MEME.
--->
+Our code uses version 5.4.1, and was activated on the cluster with  
+```
+module load MEME-suite/5.4.1
+```  
+For converting bedfiles to fasta files for MEME suite, we used bedtools getfasta, included in bedtools.  
 
 ## Installation Instructions
 Once the system has been configured as specified in **Dependencies**, you need to clone this GitHub repository onto your machine. The inputs specified below are included in the repository, and the script is hard-coded to pull these inputs. 
